@@ -35,17 +35,17 @@ int main() {
   cout << sum << endl << endl;
   sum = 0;
 
-  i = 2;
+  i = 1;
   cout << "D) Numbers and their squares between 1 and 10:" << endl;
-  while (i < 10) {
+  while (i <= 10) {
     cout << i << "\t" << i * i << endl;
     i++;
   }
   i = 0;
   cout << endl;
 
-  cout << "E) Sum of the squares of the odd numbers between the first number "
-          "and second number:"
+  cout << "E) Sum of the squares of the odd numbers between first and second "
+          "number:"
        << endl;
   while (i < interval) {
     currentNum = firstNum + i;

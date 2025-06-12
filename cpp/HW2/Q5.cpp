@@ -4,7 +4,7 @@ using namespace std;
 // By: Gordon Li
 
 int main() {
-  float RATE = 1.04, COST = 2400;
+  float RATE = 1.04, COST = 2500;
 
   for (int i = 1; i < 7; i++) {
     COST *= RATE;
