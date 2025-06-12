@@ -12,9 +12,9 @@ int main() {
     cout << "Enter the score for each subject e.g. (70 80 90): ";
     cin >> score1 >> score2 >> score3;
     total = score1 + score2 + score3;
-    if (score1 > 80 && score2 > 80 && score3 > 80 && total > 250) {
+    if ((score1 > 80 && score2 > 80 && score3 > 80) && total > 250) {
       cout << "The grade is A+." << endl;
-    } else if (score1 > 60 && score2 > 60 && score3 > 60 && total > 200) {
+    } else if ((score1 > 60 && score2 > 60 && score3 > 60) && total > 200) {
       cout << "The grade is A." << endl;
     } else if (score1 < 50 || score2 < 50 || score3 < 50) {
       cout << "The grade is F." << endl;
