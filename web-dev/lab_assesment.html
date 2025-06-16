@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Electronics Store</title>
+  </head>
+  <body>
+    <h1>Electronics Store</h1>
+
+    <form>
+      <label for="Email"> Email: </label>
+      <textarea value="Email" rows="1" cols="28"></textarea>
+
+      <br />
+      <br />
+
+      <table border="1" cellpadding="5" cellspacing="2">
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+        <tr>
+          <td>Headphones</td>
+          <td>$25.00</td>
+          <td>
+            <select name="headphones" size="1">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Phone Charger</td>
+          <td>$15.00</td>
+          <td>
+            <select name="phone_chargers" size="1">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+
+      <br />
+
+      <p>Choose Delivery Option:</p>
+      <input type="radio" id="type_1" name="shipping_time" value="5-7" />
+      <label for="type_1">Standard Shipping (5-7 days)</label>
+      <br />
+      <input type="radio" id="type_2" name="shipping_time" value="2-3" />
+      <label for="type_2">Express Shipping (2-3 days)</label>
+      <br />
+      <input type="radio" id="type_3" name="shipping_time" value="0-1" />
+      <label for="type_3">In-store Pickup</label>
+
+      <br />
+      <br />
+
+      <input type="submit" value="Place Order" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>

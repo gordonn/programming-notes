@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>INFO1213</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!--HTML forms-->
+
+    <!--Text Fields:-->
+    <form>
+      Enter text here <br />
+      <input type="text" name="textname" size="25" />
+    </form>
+
+    <form>
+      Enter text here <br />
+      <input type="text" name="textname" size="25" maxlength="25" />
+      <!--size is initial size of tag while maxlength is the max length of the input-->
+    </form>
+
+    <!--Password Fields:-->
+    <form>
+      Enter password here <br />
+      <input
+        type="password"
+        name="passText"
+        id="myPass"
+        size="10"
+        maxlength="10"
+      />
+    </form>
+
+    <!--Labels (not necessary but controls should be labeled)-->
+
+    <form>
+      <label for="myPass2">password: </label> <br />
+      <input
+        type="password"
+        name="passText"
+        id="myPass2"
+        size="10"
+        maxlength="10"
+      />
+    </form>
+    <!--Cursor is automatically passed when the label element is selected-->
+    <!--labels also give more context to the browser-->
+
+    <!--Checkboxes-->
+    <form>
+      <input type="checkbox" id="groceries_1" value="milk" />
+      <label for="groceries_1"> Milk</label>
+
+      <input type="checkbox" id="groceries_2" checked="checked" value="bread" />
+      <label for="groceries_2"> Bread</label>
+
+      <input type="checkbox" id="groceries_3" checked="checked" value="eggs" />
+      <label for="groceries_3"> Eggs</label>
+    </form>
+
+    <!--Radio buttons-->
+    <form>
+      <input type="radio" id="age_1" name="age" value="under20" />
+      <label for="age_1"> 0-19 </label>
+      <input type="radio" id="age_2" name="age" value="above20" />
+      <label for="age_2"> 20-100 </label>
+    </form>
+
+    <!--The select tag (when we have lots of options, a drop down menu is better)-->
+    <p>With multiple (can select multiple options):</p>
+    <select name="groceries1" size="8" multiple="multiple">
+      <option>option1</option>
+      <option>option2</option>
+      <option>option3</option>
+      <option>option4</option>
+    </select>
+
+    <p>Without multiple:</p>
+    <select name="groceries2" size="8">
+      <option>option1</option>
+      <option>option2</option>
+      <option>option3</option>
+      <option>option4</option>
+    </select>
+
+    <!--textarea-->
+    <p>Tell us about yourself</p>
+    <br />
+    <textarea rows="40" cols="50" name="resume">(e.g. I'm awesome)</textarea>
+
+    <!--action buttons-->
+    <form action="">
+      <input type="submit" value="Submit Form" />
+      <input type="reset" value="Reset Form" />
+      <input
+        type="button"
+        value="Click Me"
+        onclick="alert('Button clicked!')"
+      />
+    </form>
+  </body>
+</html>
