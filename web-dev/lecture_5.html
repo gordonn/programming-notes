@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="lecture_5.css" rel="stylesheet" />
+
+    <style>
+      body {
+        background-color: powderblue;
+      }
+      h1 {
+        font-size: 80pt;
+      }
+      .Bruh {
+        color: red;
+      }
+      p.Bro {
+        color: green;
+      }
+
+      /*Pseudo Classes*/
+      input:hover {
+        background: pink;
+      }
+      input:focus {
+        background: lightblue;
+        color: blue;
+      }
+
+      ol {
+        list-style-type: upper-alpha;
+      }
+      ol ol {
+        list-style-type: square;
+      }
+      ol ol ol {
+        list-style-type: decimal;
+      }
+
+      th.greencolor {
+        color: #38784c;
+      }
+      th.redcolor {
+        color: red;
+      }
+      table {
+        border-bottom-style: dotted;
+        border-bottom-width: thick;
+        border-bottom-color: red;
+      }
+    </style>
+
+    <!--
+1. Elemenet Selector:
+h1 {font-size: 24pt;}
+2. Class Selectors (create classes to allow differnt occurences of the same tag):
+p.normal {};
+3. Generic Selectors (create a class thats applied to more than one kind of tag):
+.sale {};
+4. Id Selector (application of a style to 1 specific element):
+#section14 {font-size: 20}
+5. Universal Selector:
+* {color: red;}
+-->
+  </head>
+  <body>
+    <!--Three styles of css: 
+    1. Inline CSS
+    2. Internal or Embedded CSS 
+    3. External CSS
+    -->
+
+    <h1 style="color: blue">Hello People</h1>
+
+    <!--Class selector:-->
+    <p class="Bruh">Hello 1</p>
+    <p class="Bro">Hello 2</p>
+    <h1 class="Bruh">Yo</h1>
+
+    <form>
+      <input type="text" />
+    </form>
+
+    <ol>
+      <li>Yo wassup</li>
+      <ol>
+        <li>Yo wassup again</li>
+      </ol>
+    </ol>
+
+    <table border="2">
+      <tr>
+        <th class="greencolor"></th>
+        <td>2</td>
+        <th class="redcolor">3</th>
+      </tr>
+    </table>
+    <!--CSS List Properties-->
+  </body>
+</html>

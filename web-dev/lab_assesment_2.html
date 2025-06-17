@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <style>
+      ol ol {
+        list-style-type: upper-alpha;
+      }
+      .blue {
+        color: Blue;
+      }
+      .red {
+        color: Red;
+      }
+      .yellow {
+        color: Yellow;
+      }
+      .green {
+        color: Green;
+      }
+      ol ol ol {
+        list-style-type: decimal;
+      }
+      tr.blue {
+        color: Blue;
+      }
+      table {
+        border-bottom-style: dashed;
+        border-bottom-width: thick;
+        border-top-width: thick;
+        border-top-color: red;
+        border-bottom-color: blue;
+        border-top-style: dotted;
+        border-left-width: thick;
+        border-right-width: thick;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Aircraft Types</h2>
+    <ol>
+      <li>General Aviation (piston-driven engines)</li>
+      <ol>
+        <li>Single Engine Aircraft</li>
+        <ol>
+          <li class="blue">Tail wheel</li>
+          <li class="red">Tricycle</li>
+        </ol>
+      </ol>
+      <li>Commercial Aviation (jet engines)</li>
+      <ol>
+        <li>Dual-Engine</li>
+        <ol>
+          <li>Wing-mounted engines</li>
+          <li class="yellow">Fuselage-mounted engines</li>
+        </ol>
+        <li>Tri-Engine</li>
+        <ol>
+          <li class="green">Third engine in vertical stabilizer</li>
+          <li class="green">Third engine in fuselage</li>
+        </ol>
+      </ol>
+    </ol>
+
+    <table border="1">
+      <caption>
+        Fruit Juice Drinks
+      </caption>
+      <tr>
+        <td></td>
+        <th><b>Apple</b></th>
+        <th><b>Orange</b></th>
+        <th><b>Grape</b></th>
+      </tr>
+      <tr class="blue">
+        <th>Breakfast</th>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr class="blue">
+        <th>Lunch</th>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr class="blue">
+        <th>Dinner</th>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+    </table>
+  </body>
+</html>
