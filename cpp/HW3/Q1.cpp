@@ -11,9 +11,9 @@ int main() {
   cout << "1. Standard Adult Membership" << endl;
   cout << "2. Child Membership " << endl;
   cout << "3. Senior Citizen Membership" << endl;
-  cout << "4. Quit the program" << endl << endl;
+  cout << "4. Quit the Program" << endl << endl;
 
-  do {
+  while (choice != 4) {
     cout << "Enter your choice: ";
     cin >> choice;
 
@@ -48,8 +48,8 @@ int main() {
            << endl;
       break;
     case 4:
-      cout << "The program is quitting" << endl;
+      cout << "Program is quitting" << endl;
       break;
     }
-  } while (choice != 4);
+  }
 }

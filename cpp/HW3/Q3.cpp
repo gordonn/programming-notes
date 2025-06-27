@@ -31,7 +31,7 @@ int main() {
            << endl
            << endl;
     } else {
-      cout << "Unfortunately, you don't quality for a loan." << endl
+      cout << "Unfortunately, you don't qualify for a loan." << endl
            << endl
            << endl;
     }
