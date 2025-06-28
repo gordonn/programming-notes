@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat Sheet (CSS/HTML)</title>
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    /*Element Selector:*/
+    h1 {
+      font-size: 24pt
+    }
+
+    /*Class Selector:*/
+    p.red-text {
+      color: red
+    }
+
+    /*Generic Selector:*/
+    .generic-blue-text {
+      color: blue;
+    }
+
+    /*Id Selector (applies style to one specific element)*/
+    #green-id {
+      color: green;
+    }
+
+    /*Hover and Focus Pseudo Classes:*/
+    input:hover {
+      background: pink;
+    }
+
+    input:focus {
+      background: lightblue;
+    }
+
+    /*List Properties*/
+    ul {
+      list-style-type: square;
+    }
+
+    ol {
+      list-style-type: upper-roman;
+      /*decimal, upper-alpha, lower-alpha, upper-roman, lower-roman*/
+    }
+
+    /*Nested Ordered Lists*/
+    ol ol {
+      list-style-type: upper-alpha;
+    }
+
+    /*Color*/
+    .color {
+      color: teal;
+      background-color: lightcyan;
+    }
+
+    /*Borders*/
+    table {
+      border-bottom-style: dotted;
+      border-bottom-width: thick;
+      border-bottom-color: green;
+      border-top-style: dashed;
+      border-top-width: thin;
+    }
+
+    /*Font Propoerties*/
+    h2 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-size: 5vw;
+      /*Responsive text*/
+      /*Other methods: 100%, 2.5em (multiplied by the font-size of the parent element)*/
+      font-weight: lighter;
+      /*Can also be numerical value (e.g. 900), bold, normal*/
+
+      /*Font shorthand:*/
+      font: italic lighter 5vw Georgia;
+    }
+
+    /*Spacing, Margins & Padding*/
+    /*Letter & Word Spacing:*/
+    .wide-text {
+      letter-spacing: 1em;
+      word-spacing: 2em;
+    }
+
+    .form {
+      padding: 20px;
+      margin: 30px;
+      background-color: lightsteelblue;
+      width: 300px;
+      border: solid black 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Title</h2>
+  <!--Break Tag:-->
+  <br>
+  <!--Horziontal Line Tag:-->
+  <hr>
+  <!--Image Tag:-->
+  <img src="" alt="">
+  <!--Hypertext link:-->
+  <a href="">Text</a>
+
+  <!--Unordered List-->
+  <ul>
+    <li>Unordered List Element 1</li>
+    <ul>
+      <li> Nested unordered list element</li>
+    </ul>
+  </ul>
+  <ol>
+    <li>Ordered List Element 1</li>
+    <ol>
+      <li>Nested ordered list element</li>
+    </ol>
+  </ol>
+
+  <!--Definition List-->
+  <dl>
+    <dt class="wide-text">This is a very wide title</dt>
+    <dd>Content</dd>
+  </dl>
+
+  <!--Table-->
+  <table border="border" cellpadding="10" cellspacing="5">
+    <!--Table Caption:-->
+    <caption>Table Caption</caption>
+    <!--Table Row-->
+    <tr>
+      <!--Table Heading-->
+      <th>Table heading</th>
+      <td>Table data</td>
+      <td>Table data</td>
+      <td rowspan="2">Row Span 2</td>
+    </tr>
+    <tr>
+      <th colspan="3">Collumn Span 3</th>
+    </tr>
+  </table>
+
+  <!--Forms-->
+
+  <div class="form">
+    <form>
+      <!--Text Fields-->
+      <label for="myText">Enter text here</label>
+      <br>
+      <input type="text" name="textname" id="myText" size="10" maxlength="25">
+
+      <br>
+
+      <!--Password Fields-->
+      <label for="myPass">Enter password here</label>
+      <br>
+      <input type="password" name="passText" id="myPass" size="10" maxlength="25">
+
+      <br>
+
+      <!--Checkboxes-->
+      <input type="checkbox" id="groceries_1" value="milk">
+      <label for="groceries_1">Milk</label>
+      <input type="checkbox" id="groceries_2" checked="checked" value="bread">
+      <label for="groceries_2">Bread</label>
+      <input type="checkbox" id="groceries_3" checked="chedked" value="eggs">
+      <label for="groceries_3">Eggs</label>
+
+      <br>
+
+      <!--Radio Buttons-->
+      <input type="radio" id="age_1" name="age" value="under20">
+      <label for="age_1">0 - 19</label>
+      <input type="radio" id="age_2" name="age" checked="checked" value="above20">
+      <label for="age_2">20 - 100</label>
+
+      <!--Select Tag-->
+      <p>size=1(default), no multiple:
+        <select name="groceries1">
+          <option>milk</option>
+          <option>eggs</option>
+          <option>cheese</option>
+          <option>fish</option>
+        </select>
+      </p>
+
+      <p>size 8, with multiple:
+        <select name="groceries2" multiple="multiple" size="4">
+          <option>milk</option>
+          <option>eggs</option>
+          <option>cheese</option>
+          <option>fish</option>
+          <option>chicken</option>
+        </select>
+      </p>
+
+      <br>
+
+      <!--Text Area-->
+      <p>Text area
+        <textarea rows="10" cols="20" name="text-area" class="color">Initial Text</textarea>
+      </p>
+
+      <!--Action buttons-->
+      <input type="submit" value="Submit Form">
+      <input type="reset" value="Reset Form">
+    </form>
+
+  </div>
+  <!--CSS Type:
+1. Inline CSS -> Applied to a single HTML element.
+2. Internal or Embedded CSS -> Applies to whole body of document.
+3. External CSS -> Applies to whole bodies of any number of documents.
+-->
+
+  <p class="red-text">Red Text</p>
+  <p class="generic-blue-text">Blue Text</p>
+  <p id="green-id">Green Text</p>
+
+</body>
+
+</html>
