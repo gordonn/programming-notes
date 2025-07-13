@@ -2,8 +2,8 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
-
 using namespace std;
+// By: Gordon Li
 
 int main() {
   ifstream inputFile("ClassMarks.txt");
