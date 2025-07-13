@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: lightyellow;
+    }
+
+    .main {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      border: 1px solid red;
+      padding: 6px;
+      font-size: 14px;
+      font-family: 'Times New Roman', Times, serif;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <script>
+    const PI = Math.PI;
+
+    function computeValues() {
+      var radius = document.getElementById("radius").value;
+      document.getElementById("diameter").value = radius * 2;
+      document.getElementById("area").value = PI * Math.pow(radius, 2);
+      document.getElementById("circumference").value = 2 * PI * radius;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="main">
+    <h1>Circle Calculator</h1>
+
+    <label for="radius">Enter the radius:</label>
+    <br>
+    <input type="text" name="radius" id="radius" onkeyup=computeValues()>
+
+    <label for="diameter">Diameter of circle:</label>
+    <br>
+    <input type="text" name="diameter" id="diameter">
+
+    <label for="area">Area of circle:</label>
+    <br>
+    <input type="text" name="area" id="area">
+
+    <label for="circumference">Circumference of circle:</label>
+    <br>
+    <input type="text" name="circumference" id="circumference">
+  </div>
+</body>
+
+</html>

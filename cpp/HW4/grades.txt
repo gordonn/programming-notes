@@ -1,0 +1,32 @@
+A1 A
+A2 D
+A3 F
+A4 C
+A5 A+
+A6 F
+A7 C-
+A8 B+
+A9 D
+A10 F
+A11 B+
+A12 C
+A13 C-
+A14 A-
+A15 B-
+A16 B+
+A17 F
+A18 A+
+A19 D
+A20 B-
+
+Number of students that got A+: 2
+Number of students that got A: 1
+Number of students that got A-: 1
+Number of students that got B+: 3
+Number of students that got B: 0
+Number of students that got B-: 2
+Number of students that got C+: 0
+Number of students that got C: 2
+Number of students that got C-: 2
+Number of students that got D: 3
+Number of students that got F: 4

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Feedback Form</title>
+
+  <style>
+    h1 {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: purple;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    form {
+      border: 2px solid black;
+      padding: 20px;
+      margin: 50px auto;
+      width: 50%;
+    }
+
+    label {
+      font-family: Arial, Helvetica, sans-serif;
+      color: black;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      height: 30px;
+    }
+
+    textarea {
+      font-family: Arial, Helvetica, sans-serif;
+      color: black;
+      font-size: 14px;
+      width: 100%;
+      height: 100px;
+    }
+
+    .button {
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      background: green;
+      size: 16px;
+      font-weight: bold;
+      width: 85px;
+      height: 35px;
+      border-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Student Feedback Form</h1>
+
+  <form>
+    <label for="name">Name:</label>
+    <br>
+    <input type="text" name="name" id="name">
+
+    <br>
+    <br>
+
+    <label for="email">Email:</label>
+    <br>
+    <input type="text" name="email" id="email">
+
+    <br>
+    <br>
+
+    <label for="feedback">Feedback:</label>
+    <br>
+    <textarea name="feedback" id="feedback"></textarea>
+
+    <br>
+    <br>
+
+    <input type="submit" value="Submit" class="button">
+  </form>
+</body>
+
+</html>
