@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 7</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<script>
+  function compare() {
+    let number = document.getElementById("number").value;
+    if (number < 10 && number > 0) {
+      document.getElementById("comparison").innerHTML = "The number is less than 10.";
+    }
+    else if (number > 10) {
+      document.getElementById("comparison").innerHTML = "The number is greater than 10.";
+    }
+    else if (number <= 0) {
+      document.getElementById("comparison").innerHTML = "Please enter a positive number.";
+    }
+    else {
+      document.getElementById("comparison").innerHTML = "The number is exactly 10.";
+    }
+  }
+
+  function interval() {
+    let number = document.getElementById("number").value;
+    let result = "Numbers from 1 to the entered number is: ";
+    for (let i = 1; i <= number; i++) {
+      result += i + " ";
+    }
+    if (number > 0) {
+      document.getElementById("interval").innerHTML = result;
+    }
+    else {
+      document.getElementById("interval").innerHTML = "";
+    }
+  }
+</script>
+
+<body>
+  <h1>Control Flow and Iteration Lab Exercise</h1>
+
+  <label for="number">Enter a number:</label>
+  <input type="text" name="number" id="number">
+
+  <button onclick="compare(); interval();">Submit</button>
+
+  <br>
+  <p id="comparison"></p>
+  <p id="interval"></p>
+
+</body>
+
+</html>
