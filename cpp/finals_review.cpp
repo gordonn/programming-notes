@@ -251,4 +251,21 @@ int main() {
 
   // string Comparison:
   // We can use relational operators to directly compare string objects
+  string str1 = "Banana", str2 = "Apple";
+  if (str1 < str2) {
+    cout << str1 << " is alphabetically before " << str2 << endl;
+  } else {
+    cout << str2 << " is alphabetically before " << str1 << endl;
+  }
+
+  // String operators:
+  // += -> appends string on right to end of contents on left
+  // + -> concatenates two strings
+  // [] -> reference characters in string using array notation
+  // (>, >=, <, <=, ==, !=) -> Relational operators for string comparison
+
+  // String member functions: .length() & .substr()
+
+  // ------------------------
+  // Functions overview:
 }

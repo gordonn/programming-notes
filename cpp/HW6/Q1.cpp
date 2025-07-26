@@ -2,8 +2,8 @@
 using namespace std;
 // By: Gordon Li
 
-bool all_the_same(double x, double y, double z);
-void displaySortedNumbers(double x, double y, double z);
+bool all_the_same(double, double, double);
+void displaySortedNumbers(double, double, double);
 
 int main() {
   double a, b, c;

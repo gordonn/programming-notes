@@ -2,8 +2,8 @@
 using namespace std;
 // By: Gordon Li
 
-int count_words(string str);
-string makeUpper(string str);
+int count_words(string);
+string makeUpper(string);
 
 int main() {
   string str;

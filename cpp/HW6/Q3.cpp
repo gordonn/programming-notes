@@ -2,9 +2,9 @@
 using namespace std;
 // By: Gordon Li
 
-string middle(string str);
-string repeat(string str, int n);
-int count_vowels(string str);
+string middle(string);
+string repeat(string, int);
+int count_vowels(string);
 
 int main() {
   string input;
