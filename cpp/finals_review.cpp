@@ -1,11 +1,12 @@
 #include <cctype>
 #include <cstdlib>
 #include <cstring>
-#include <iomanip>
 #include <iostream>
 using namespace std;
 
+// Prototype for a function that passes by reference
 void squareNums(int &, int &);
+// Prototype using array as argument
 void showValues(int[], int);
 void showStatic();
 // Prototype with default parameter:
