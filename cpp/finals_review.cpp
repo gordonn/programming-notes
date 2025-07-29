@@ -13,7 +13,7 @@ void showStatic();
 void printName(string = "Gordon");
 
 int main() {
-  // Finding the highest value in a array
+  // Finding the highest & lowest values in a array
   const int SIZE = 5;
   int numbers[SIZE] = {5, 4, 3, 2, 1};
   int highest = numbers[0];
@@ -32,7 +32,7 @@ int main() {
 
   // ---------------------
   // Removing an element:
-  // Position we want to remove at (index + 1):
+  // Position we want to remove at: (index + 1)
   int pos = 3;
   // The current size of the array
   int current_size = 5;
@@ -55,30 +55,24 @@ int main() {
   // --------------------
 
   // Inserting a element:
-  // Initial size of the array is 5:
-  current_size = 5;
   // The capacity that we have to accomodate for after inserting a element is 6:
   const int CAPACITY = 6;
   // We want to insert a value into the second index (2 - 1)
   pos = 1;
-  // Initialzie array with our updated capacity after inserting a element:
+  // Initialzie array:
   int value2[CAPACITY] = {6, 4, 3, 2, 1};
 
-  // If a value hasn't already been inserted into our array, then
-  if (current_size < CAPACITY) {
-    // Increase the current size by 1 before inserting:
-    current_size++;
-    // For array index at current_size - 1, while is greater than the position
-    // we want to insert into, i--
-    for (int i = current_size - 1; i > pos; i--) {
-      // Replace the current value with the value before it
-      value2[i] = value2[i - 1];
-    }
-    // Replace the position value we want to insert into with our new value
-    value2[pos] = 5;
+  // If a value hasn't already been inserted into our array, then:
+  // For array index at current_size - 1, while is greater than the position
+  // we want to insert into, i--
+  for (int i = CAPACITY - 1; i > pos; i--) {
+    // Replace the current value with the value before it
+    value2[i] = value2[i - 1];
   }
+  // Replace the position value we want to insert into with our new value
+  value2[pos] = 5;
 
-  for (int i = 0; i < current_size; i++) {
+  for (int i = 0; i < CAPACITY; i++) {
     cout << value2[i] << " ";
   }
   cout << endl;
@@ -242,11 +236,9 @@ int main() {
   cout << total2 << endl;
 
   // ---------------------
-  // The to_string function
+  // The to_string() function:
   // Example to_string(int value) or to_string(double value) (any numerical data
   // type works)
-  // -> Will accept argument of any numerical data type and convert it to a
-  // string object
 
   // --------------------
   // More about the C++ string Class
@@ -277,10 +269,7 @@ int main() {
   // Functions overview:
   //
   // Using Reference Variables as Parameters:
-  // A mechanism that allows a function to work with the original argument from
-  // the function call, not a copy of the argument. ALlows the function to
-  // modfiy values stored in the calling environment. Provides a way for the
-  // function to 'return' more than one value
+  // Allows us to modify variable directly (no need for return statements):
 
   int a = 2, b = 3;
   squareNums(a, b);
@@ -289,34 +278,25 @@ int main() {
 
   // -----------------------
   // Arrays as function arguments:
-  // To pass an array to a function, just use the array name: void
-  // showScores(int tests[]) When passing an array to a function, it is common
-  // to pass array size so that function knowsw how many elements to process:
-  // showsScores(int tests[], int size)
+  // To pass an array to a function, just use the array name
+  // When passing an array to a function, it is common to pass array size arg
 
   const int SIZE3 = 5;
   int testArr[SIZE3] = {1, 2, 3, 4, 5};
 
   showValues(testArr, SIZE3);
+
   // Array names in functions are like reference variables - changes made to
   // array in a function are reflected in acutal array in calling function
   // We can prevent a function form making changes to an array argument by using
   // the const key word in the parameter declaration.
 
-  // ------------------------
-  // Global vs Local Variables
-  //
-  // Local variables only exist while a function is executing
-  // A global variable is any variable defined outside all the functions in a
-  // program. We should avoid using global variables and any global that we
-  // create should be global constants
-  //
   // --------------------------
   // Static Local Variables
   //
   // Local variables only exist while the function is executing. When the
   // function terminates, the contents of local variables are lost. static local
-  // variables retian their contents between function calls static local
+  // variables retain their contents between function calls, static local
   // variables are defined and initialized only the first time the function is
   // executed. 0 is the default intialization value
 
@@ -333,8 +313,9 @@ int main() {
   // for some or all of them: int getSum(int, int=0, int=0);
   //
   // If not all parameters to a function have default values, the defaultless
-  // ones are declared first in the parameter list: int getSum(int, int=0,
-  // int=0); // OK int getSum(int, int=0, int); // NO
+  // ones are declared first in the parameter list:
+  // int getSum(int, int=0, int=0); // OK
+  // int getSum(int, int=0, int); // NO
   //
   // When a argument is ommitted from a function call, all arguments after it
   // must also be omitted: sum = getSum(num1, num2); // OK sum = getSum(num1, ,
