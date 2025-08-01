@@ -17,9 +17,9 @@ int main() {
 
   getData(temp, months);
   cout << "The average of all the highest temperatures is: " << setprecision(2)
-       << fixed << averageHigh(temp) << endl;
+       << fixed << averageHigh(temp) << " °C" << endl;
   cout << "The average of all the lowest temperatures is: " << setprecision(2)
-       << fixed << averageLow(temp) << endl;
+       << fixed << averageLow(temp) << " °C" << endl;
 
   cout << "The month with the hottest high temperature is: "
        << months[indexHighTemp(temp)] << endl;
@@ -57,7 +57,6 @@ double averageLow(const int temp[][2], const int size) {
 }
 
 int indexHighTemp(const int temp[][2], const int size) {
-  // Initialize array that contains the highest temperatures and there indexes
   int highIndex = 0;
 
   for (int i = 0; i < size; i++) {
@@ -70,11 +69,10 @@ int indexHighTemp(const int temp[][2], const int size) {
 }
 
 int indexLowTemp(const int temp[][2], const int size) {
-  // Initialize array that contains the lowest temperatures and there indexes
   int lowIndex = 0;
 
   for (int i = 0; i < size; i++) {
-    if (temp[i][0] < temp[lowIndex][0]) {
+    if (temp[i][1] < temp[lowIndex][1]) {
       lowIndex = i;
     }
   }
