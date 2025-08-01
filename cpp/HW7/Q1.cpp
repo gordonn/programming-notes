@@ -1,14 +1,16 @@
+#include <iomanip>
 #include <iostream>
 using namespace std;
 // By: Gordon Li
 
-void setZero(int[], int);
-void inputArray(int[], int = 20);
-void doubleArray(int[], int[], int = 20);
-void copyGamma(const int[], int[][4], int = 10);
-void copyAlphaBeta(const int[], const int[], int[][4], int = 10);
-void printArray(int[], int);
-void setInStock(int[][4], int[], int);
+void setZero(int[], const int);
+void inputArray(int[], const int = 20);
+void doubleArray(const int[], int[], const int = 20);
+void copyGamma(const int[], int[][4], const int = 10);
+void copyAlphaBeta(const int[], const int[], int[][4], const int = 10);
+void printArray(const int[], const int);
+void setInStock(int[][4], const int[], const int = 10);
+void print2DArray(const int[][4], const int = 10);
 
 int main() {
   int inStock[10][4];
@@ -17,97 +19,126 @@ int main() {
   int gamma[4] = {11, 13, 15, 17};
   int delta[10] = {3, 5, 2, 6, 10, 9, 7, 11, 1, 8};
 
-  // 1. Testing setZero function:
+  cout << "setZero() function:" << endl;
   const int SIZE = 30;
   int testArr[SIZE];
   setZero(testArr, SIZE);
-  // Printing out the values of test array using printArray() function:
-  cout << "setZero() function: " << endl;
+  cout << "Printing out the result of setZero() function using the "
+          "printArray() function:"
+       << endl;
   printArray(testArr, SIZE);
+  cout << endl;
 
-  // 2. Testing inputArray function:
+  cout << "inputArray() function:" << endl;
   inputArray(alpha);
-  // Printing out the values of the updated alpha array:
-  cout << "inputArray() function: " << endl;
+  cout << endl;
+  cout << "Printing out the values of the updated alpha array: " << endl;
   printArray(alpha, 20);
+  cout << endl << endl;
 
-  // 3. Testing doubleArray function:
+  cout << "doubleArray() function:" << endl;
   doubleArray(alpha, beta);
-  // Printing out the values of the updated beta array:
-  cout << "doubleArray() function: " << endl;
+  cout << "Printing out the values of the updated beta array:" << endl;
   printArray(beta, 20);
+  cout << endl << endl;
 
-  // 4. Testing copyGamma function:
+  cout << "copyGamma() function:" << endl;
   copyGamma(gamma, inStock);
-  // Print out the values of the updated inStock 2D array:
+  cout << "Printing out the values of the updated inStock 2D array:" << endl;
+  print2DArray(inStock);
+  cout << endl;
+
+  cout << "copyAlphaBeta() function:" << endl;
+  copyAlphaBeta(alpha, beta, inStock);
+  cout << "Printing out the values of the updated inStock 2D array:" << endl;
+  print2DArray(inStock);
+  cout << endl;
+
+  cout << "setInStock() function:" << endl;
+  setInStock(inStock, delta);
+  cout << endl;
+  cout << "Printing out the values of the updated inStock 2D array:" << endl;
+  print2DArray(inStock);
+  cout << endl;
 }
 
-void setZero(int arr[], int size) {
+void setZero(int arr[], const int size) {
   for (int i = 0; i < size; i++) {
     arr[i] = 0;
   }
 }
 
-void inputArray(int arr[], int size) {
+void inputArray(int arr[], const int size) {
   for (int i = 0; i < size; i++) {
     cout << "Value " << i + 1 << " in the alpha array: ";
     cin >> arr[i];
   }
-  cout << endl << endl;
 }
 
-void doubleArray(int input[], int output[], int size) {
+void doubleArray(const int input[], int output[], const int size) {
   for (int i = 0; i < size; i++) {
     output[i] = input[i] * 2;
   }
-  cout << endl << endl;
 }
 
-void copyGamma(const int input[], int output[][4], int size) {
+void copyGamma(const int input[], int output[][4], const int size) {
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < 4; j++) {
-      if (i == 1) {
+      if (i == 0) {
         output[i][j] = input[j];
       } else {
-        output[i][j] = input[j] * 3;
+        output[i][j] = output[i - 1][j] * 3;
       }
     }
   }
 }
 
 void copyAlphaBeta(const int firstInput[], const int secondInput[],
-                   int output[][4], int size) {
+                   int output[][4], const int size) {
+  int index = 0;
+  int index2 = 0;
+
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < 4; j++) {
-      if (i <= 5) {
-        output[i][j] = firstInput[j];
+      if (i < 5) {
+        output[i][j] = firstInput[index];
+        index++;
       } else {
-        output[i][j] = secondInput[j];
+        output[i][j] = secondInput[index2];
+        index2++;
       }
     }
   }
 }
 
-void printArray(int arr[], int size) {
+void printArray(const int arr[], const int size) {
   for (int i = 1; i <= size; i++) {
     cout << arr[i - 1] << " ";
     if (i % 15 == 0) {
       cout << endl;
     }
   }
-  cout << endl;
 }
 
-void setInStock(int output[][4], int delta[], int size) {
+void setInStock(int output[][4], const int delta[], const int size) {
   for (int i = 0; i < size; i++) {
     for (int j = 0; j < 4; j++) {
       if (i == 0) {
-        cout << "Enter element " << i + 1
+        cout << "Enter element " << j + 1
              << " for the first collumn of the array: ";
         cin >> output[i][j];
       } else {
         output[i][j] = output[i - 1][j] * 2 - delta[i];
       }
     }
+  }
+}
+
+void print2DArray(const int arr[][4], const int size) {
+  for (int i = 0; i < size; i++) {
+    for (int j = 0; j < 4; j++) {
+      cout << setw(8) << arr[i][j];
+    }
+    cout << endl;
   }
 }
