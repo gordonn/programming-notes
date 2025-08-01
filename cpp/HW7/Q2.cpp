@@ -58,54 +58,26 @@ double averageLow(const int temp[][2], const int size) {
 
 int indexHighTemp(const int temp[][2], const int size) {
   // Initialize array that contains the highest temperatures and there indexes
-  int highest[size][2];
+  int highIndex = 0;
+
   for (int i = 0; i < size; i++) {
-    highest[i][0] = temp[i][0];
-    highest[i][1] = i;
-  }
-
-  // Bubble sort
-  for (int i = 0; i < size; i++) {
-    for (int j = 0; j < size - i - 1; j++) {
-      int tmp = highest[j][0];
-      int tmp2 = highest[j][1];
-      if (highest[j][0] > highest[j + 1][0]) {
-
-        highest[j][0] = highest[j + 1][0];
-        highest[j + 1][0] = tmp;
-
-        highest[j][1] = highest[j + 1][1];
-        highest[j + 1][1] = tmp2;
-      }
+    if (temp[i][0] > temp[highIndex][0]) {
+      highIndex = i;
     }
   }
 
-  return highest[size - 1][1];
+  return highIndex;
 }
 
 int indexLowTemp(const int temp[][2], const int size) {
   // Initialize array that contains the lowest temperatures and there indexes
-  int lowest[size][2];
+  int lowIndex = 0;
+
   for (int i = 0; i < size; i++) {
-    lowest[i][0] = temp[i][1];
-    lowest[i][1] = i;
-  }
-
-  // Bubble sort
-  for (int i = 0; i < size; i++) {
-    for (int j = 0; j < size - i - 1; j++) {
-      int tmp = lowest[j][0];
-      int tmp2 = lowest[j][1];
-
-      if (lowest[j][0] > lowest[j + 1][0]) {
-        lowest[j][0] = lowest[j + 1][0];
-        lowest[j + 1][0] = tmp;
-
-        lowest[j][1] = lowest[j + 1][1];
-        lowest[j + 1][1] = tmp2;
-      }
+    if (temp[i][0] < temp[lowIndex][0]) {
+      lowIndex = i;
     }
   }
 
-  return lowest[0][1];
+  return lowIndex;
 }
