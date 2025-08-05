@@ -1,6 +1,10 @@
+// Provides character classification and conversion for chars
 #include <cctype>
+// Provides general utils - string/number conversion
 #include <cstdlib>
+// C-string manipulation functions - strlen(), strcpy(), strcat(), strcat()
 #include <cstring>
+
 #include <iostream>
 using namespace std;
 
@@ -13,33 +17,14 @@ void showStatic();
 void printName(string = "Gordon");
 
 int main() {
-  // Finding the highest & lowest values in a array
-  const int SIZE = 5;
-  int numbers[SIZE] = {5, 4, 3, 2, 1};
-  int highest = numbers[0];
-  int lowest = numbers[0];
-  for (int i = 1; i < SIZE; i++) {
-    if (numbers[i] > highest) {
-      highest = numbers[i];
-    }
-    if (numbers[i] < lowest) {
-      lowest = numbers[i];
-    }
-  }
-
-  cout << highest << endl;
-  cout << lowest << endl;
-
-  // ---------------------
   // Removing an element:
-  // Position we want to remove at: (index + 1)
+  // Position we want to remove at (index + 1):
   int pos = 3;
-  // The current size of the array
   int current_size = 5;
   // Array intialized with that current_size number of values
   int value[5] = {5, 4, 3, 2, 1};
 
-  // Will remove the 3 from the array
+  // Remove third element from the array (3):
   // Start at the third position
   for (int i = pos; i < current_size; i++) {
     // Pos and every value after will be swapped with the value after it
@@ -47,7 +32,6 @@ int main() {
   }
   current_size--;
 
-  // Output the contents of the updated array only up to the current size
   for (int i = 0; i < current_size; i++) {
     cout << value[i] << " ";
   }
@@ -57,19 +41,16 @@ int main() {
   // Inserting a element:
   // The capacity that we have to accomodate for after inserting a element is 6:
   const int CAPACITY = 6;
-  // We want to insert a value into the second index (2 - 1)
+  // Insert a value into the second index (2 - 1):
   pos = 1;
   // Initialzie array:
   int value2[CAPACITY] = {6, 4, 3, 2, 1};
 
-  // If a value hasn't already been inserted into our array, then:
-  // For array index at current_size - 1, while is greater than the position
-  // we want to insert into, i--
+  // Starting from the last element, until we reach the position, we will
+  // replace the current element with the element before it
   for (int i = CAPACITY - 1; i > pos; i--) {
-    // Replace the current value with the value before it
     value2[i] = value2[i - 1];
   }
-  // Replace the position value we want to insert into with our new value
   value2[pos] = 5;
 
   for (int i = 0; i < CAPACITY; i++) {
@@ -77,19 +58,6 @@ int main() {
   }
   cout << endl;
 
-  //-----------------
-
-  // Swapping Elements:
-  // Utilize a temporary variable
-  int value3[5] = {1, 2, 3, 4, 5};
-
-  int temp = value3[0];
-  value3[0] = value3[1];
-  value3[1] = temp;
-  for (int i = 0; i < 5; i++) {
-    cout << value3[i] << " ";
-  }
-  cout << endl;
   //-----------------
 
   // C-strings, and more about the string class review:
@@ -100,30 +68,23 @@ int main() {
   getline(cin, input);
 
   int alphaCount = 0;
-  int alnumCount = 0; // if is a letter or digit
   int digitCount = 0;
-  int lowerCount = 0; // is lowercase letter
-  int printCount = 0; // is a printable character
-  int punctCount = 0; // is a punctuation character
+  int lowerCount = 0; // if (lowercase)
+  int punctCount = 0; // if (punctuation)
   int upperCount = 0;
   int spaceCount = 0;
 
   int i = 0;
+  // Use this syntax to iterate through the chracters of a string or c-string
   while (input[i] != '\0') {
     if (isalpha(input[i])) {
       alphaCount++;
-    }
-    if (isalnum(input[i])) {
-      alnumCount++;
     }
     if (isdigit(input[i])) {
       digitCount++;
     }
     if (islower(input[i])) {
       lowerCount++;
-    }
-    if (isprint(input[i])) {
-      printCount++;
     }
     if (ispunct(input[i])) {
       punctCount++;
@@ -137,16 +98,7 @@ int main() {
     i++;
   }
 
-  cout << "Alpha Count: " << alphaCount << endl;
-  cout << "Alnum Count: " << alnumCount << endl;
-  cout << "Digit Count: " << digitCount << endl;
-  cout << "Lower Count: " << lowerCount << endl;
-  cout << "Print Count: " << printCount << endl;
-  cout << "Punct Count: " << punctCount << endl;
-  cout << "Upper Count: " << upperCount << endl;
-  cout << "Space Count: " << spaceCount << endl;
-
-  // --------------------
+  // ------------------------
   // Character Case Coversion (requires cctype header file):
 
   char ch1 = 'h';
@@ -158,7 +110,7 @@ int main() {
   cout << (char)toupper(ch1) << (char)toupper(ch2) << (char)toupper(ch3)
        << endl;
 
-  // -----------------------
+  // --------------------------
   // C-strings (arrays of type char)
   // Are used in many C library functions
 
@@ -173,7 +125,6 @@ int main() {
   cout << strcat(location, province) << endl;
 
   // Strcpy (str1, str2) : copies str2 to str1
-
   char fname[SIZE2] = "Copied word", name[SIZE2];
   strcpy(name, fname);
   cout << fname << endl;
@@ -200,40 +151,17 @@ int main() {
     cout << "Words dont math" << endl;
   }
 
+  // -------------------------------
   // C-String/Numeric Conversion Functions (requires <cstdlib> hearder file)
 
-  // converts C-string to an int value, returns the value
-  int iNum = atoi("1234");
-  // converts C-string to an long value, returns the value
-  long lNum = atol("5678");
-  // converts C-string to a double value, returns the value
-  double dNum = atof("35.7");
-  char intChar[10];
+  char string1[5] = "1";
+  string string2 = "3.5";
+  // Convert string to number:
+  int num1 = stoi(string1);
+  double num2 = stod(string2);
 
-  double total = iNum + lNum + dNum;
-  cout << total << endl;
-
-  // String to Number conversion
-
-  // stoi (string str) ->
-  // Accepts a string argument and returns that value converted to int
-  int num1 = stoi("1");
-
-  // stol (string str) ->
-  // Accepts a string argument and returns that argument's value converted to a
-  // long
-  long num2 = stol("2");
-
-  // stoul (string str) -> Unsigned long
-  // stoll (string str) -> Long long
-  // stoull -> Unsigned long long
-  // stof -> Float
-  // stod -> Double
-  double num3 = stod("3.5");
-  // stold -> Long Double
-
-  double total2 = num1 + num2 + num3;
-  cout << total2 << endl;
+  double sum = num1 + num2;
+  cout << sum << endl;
 
   // ---------------------
   // The to_string() function:
