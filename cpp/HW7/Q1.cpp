@@ -122,14 +122,13 @@ void printArray(const int arr[], const int size) {
 
 void setInStock(int output[][4], const int delta[], const int size) {
   for (int i = 0; i < size; i++) {
-    for (int j = 0; j < 4; j++) {
-      if (i == 0) {
-        cout << "Enter element " << j + 1
-             << " for the first collumn of the array: ";
-        cin >> output[i][j];
-      } else {
-        output[i][j] = output[i - 1][j] * 2 - delta[i];
-      }
+    cout << "Enter element " << i + 1
+         << " for the first collumn of the array: ";
+    cin >> output[i][0];
+  }
+  for (int i = 1; i < 4; i++) {
+    for (int j = 0; j < size; j++) {
+      output[j][i] = output[j][i - 1] * 2 - delta[j];
     }
   }
 }
