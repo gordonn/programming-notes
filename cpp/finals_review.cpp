@@ -5,6 +5,7 @@
 // C-string manipulation functions - strlen(), strcpy(), strcat(), strcat()
 #include <cstring>
 
+#include <fstream>
 #include <iostream>
 using namespace std;
 
@@ -36,7 +37,7 @@ int main() {
     cout << value[i] << " ";
   }
   cout << endl;
-  // --------------------
+  // ------------------------
 
   // Inserting a element:
   // The capacity that we have to accomodate for after inserting a element is 6:
@@ -58,14 +59,15 @@ int main() {
   }
   cout << endl;
 
-  //-----------------
+  //-----------------------
 
   // C-strings, and more about the string class review:
 
   // Character testing (requires cctype header file):
-  string input;
+  char input[30];
   cout << "Enter a string: ";
-  getline(cin, input);
+  // syntax for getting input with c-string:
+  cin.getline(input, 30);
 
   int alphaCount = 0;
   int digitCount = 0;
@@ -163,21 +165,26 @@ int main() {
   double sum = num1 + num2;
   cout << sum << endl;
 
-  // ---------------------
+  // ------------------------------
   // The to_string() function:
-  // Example to_string(int value) or to_string(double value) (any numerical data
-  // type works)
+  int convert1 = 2;
+  double convert2 = 3.41;
 
-  // --------------------
+  string s1 = to_string(convert1);
+  string s2 = to_string(convert2);
+
+  cout << s1 + s2 << endl << endl;
+  // string objects can use arithmetic operators to concatenate
+
+  // -----------------------------
   // More about the C++ string Class
 
   // Input into a string object:
   string address;
   cout << "Enter your address: ";
-  getline(cin, address); // or (cin >> address) for a single word
+  getline(cin, address);
 
-  // string Comparison:
-  // We can use relational operators to directly compare string objects
+  // String comparison (relational operators):
   string str1 = "Banana", str2 = "Apple";
   if (str1 < str2) {
     cout << str1 << " is alphabetically before " << str2 << endl;
@@ -186,84 +193,75 @@ int main() {
   }
 
   // String operators:
-  // += -> appends string on right to end of contents on left
+  // += -> appends left string to end of right
   // + -> concatenates two strings
   // [] -> reference characters in string using array notation
   // (>, >=, <, <=, ==, !=) -> Relational operators for string comparison
 
-  // String member functions: .length() & .substr()
+  // String member functions:
+  // .length()
+  // .substr()
+  string s = "GordonLi";
+  int lenght = s.length();
+  string part = s.substr(0, 6); // Gets "Gordon"
 
-  // ------------------------
+  // ------------------------------------
   // Functions overview:
-  //
-  // Using Reference Variables as Parameters:
-  // Allows us to modify variable directly (no need for return statements):
 
+  // Using reference variable parameters:
   int a = 2, b = 3;
   squareNums(a, b);
   cout << "a^2: " << a << endl;
   cout << "b^2: " << b << endl;
 
-  // -----------------------
+  // -------------------------------------
   // Arrays as function arguments:
-  // To pass an array to a function, just use the array name
-  // When passing an array to a function, it is common to pass array size arg
-
   const int SIZE3 = 5;
   int testArr[SIZE3] = {1, 2, 3, 4, 5};
-
   showValues(testArr, SIZE3);
 
-  // Array names in functions are like reference variables - changes made to
-  // array in a function are reflected in acutal array in calling function
-  // We can prevent a function form making changes to an array argument by using
-  // the const key word in the parameter declaration.
-
-  // --------------------------
-  // Static Local Variables
-  //
-  // Local variables only exist while the function is executing. When the
-  // function terminates, the contents of local variables are lost. static local
-  // variables retain their contents between function calls, static local
-  // variables are defined and initialized only the first time the function is
-  // executed. 0 is the default intialization value
+  // ---------------------------------------
+  // Static Local Variablej
+  // Are defined and initialized only the first time the function is executed.
 
   for (int i = 0; i < 5; i++) {
     showStatic();
   }
 
-  // ---------------------------
-  // Default Arguments
-  // A Default argument is an argument that is passed automatically to a
-  // parameter if the argument is missing on the function call. Must be a
-  // constant declared in prototype: void evenOrOdd(int = 0); Can be declared in
-  // header if no prototype Multi-parameter functions may have defualt arguments
-  // for some or all of them: int getSum(int, int=0, int=0);
-  //
-  // If not all parameters to a function have default values, the defaultless
-  // ones are declared first in the parameter list:
-  // int getSum(int, int=0, int=0); // OK
-  // int getSum(int, int=0, int); // NO
-  //
-  // When a argument is ommitted from a function call, all arguments after it
-  // must also be omitted: sum = getSum(num1, num2); // OK sum = getSum(num1, ,
-  // num3); // NO
-  //
   // -----------------------------------------
   //
-  // Overloaded functions have the same name but different parameter lists
+  // Overloaded functions have the same name but different parameter lists.
   //
   // ----------------------------------------
+  // Using files for storage (requires fstream header file):
   //
-  // exit() function (requires cstdlib header file)
-  //
-  // Terminates the execution of a program
-  // Can pass an int value to operating system to indicate status of program
-  // termination Usually used for abnormal termination of program Requires
-  // cstdlib header file Example: exit(0); The cstdlib header defines two
-  // constants that are commonly passed, to indicate success of faliure:
-  // exit(EXIT_SUCCESS);
-  // exit(EXIT_FAILURE);
+  // Defining the input and output file streams:
+  ifstream inputFile("input.txt");
+  ofstream outputFile("output.txt");
+
+  // test if opening failed:
+  if (!inputFile) {
+    cout << "File open faliure";
+  }
+
+  string line;
+  // Iterating through lines of file:
+  while (getline(inputFile, line)) {
+    outputFile << line << endl;
+  }
+  inputFile.close();
+  outputFile.close();
+
+  // reading 2 collumns of data separated by space:
+  /*
+   *while (inputFile >> id >> score) {
+   student_id[i] = id;
+   student_score[i] = score;
+   i++;
+   total += score;
+  }
+   */
+  // ----------------------------------------
 }
 
 // Passing by Reference:
@@ -294,8 +292,6 @@ void showStatic() {
 
   cout << "statNum is " << statNum << endl;
   statNum++;
-  // Its value is displayed and then incremented just before the function
-  // returns
 }
 
 void printName(string name) { cout << name; }
@@ -304,5 +300,5 @@ void printName(string name) { cout << name; }
 void getDimensions(int length);            // 1
 void getDimensions(int length, int width); // 2
 
-int square(int number) { return number * number; }
-double square(double number) { return number * number; }
+int square(int number) { return number * number; }       // 1
+double square(double number) { return number * number; } // 2
