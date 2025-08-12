@@ -79,6 +79,8 @@ int main() {
   int i = 0;
   // Use this syntax to iterate through the chracters of a string or c-string
   while (input[i] != '\0') {
+    // for string objects:
+    // for (size_t i = 0; i < input.length(); i++) {
     if (isalpha(input[i])) {
       alphaCount++;
     }
@@ -107,10 +109,14 @@ int main() {
   char ch2 = 'E';
   char ch3 = 'y';
 
+  // Have to be casted back to chars when printing out
   cout << (char)tolower(ch1) << (char)tolower(ch2) << (char)tolower(ch3)
        << endl;
   cout << (char)toupper(ch1) << (char)toupper(ch2) << (char)toupper(ch3)
        << endl;
+  // Another example:
+  // if (tolower(str[i]) == 'a' || tolower(str[i]) == 'e')
+  // these functions work for string objects as well
 
   // --------------------------
   // C-strings (arrays of type char)
@@ -201,9 +207,13 @@ int main() {
   // String member functions:
   // .length()
   // .substr()
+  // .find()
   string s = "GordonLi";
   int lenght = s.length();
   string part = s.substr(0, 6); // Gets "Gordon"
+  if (s.find("Li")) {
+    cout << "Li is in the string" << endl << endl;
+  }
 
   // ------------------------------------
   // Functions overview:
@@ -221,7 +231,7 @@ int main() {
   showValues(testArr, SIZE3);
 
   // ---------------------------------------
-  // Static Local Variablej
+  // Static Local Variable
   // Are defined and initialized only the first time the function is executed.
 
   for (int i = 0; i < 5; i++) {
